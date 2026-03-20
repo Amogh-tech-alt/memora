@@ -1,0 +1,121 @@
+MEMORA — DEPLOY TO RENDER.COM
+Step by step guide. Takes 20 minutes. Zero cost.
+=============================================
+
+WHAT YOU GET:
+  https://memora-xxxx.onrender.com
+  Anyone can sign up and use MemorA
+  Each user has their own private data
+  Upload documents, search, bills, vault — all working
+
+FILES NEEDED (already built):
+  memora_cloud.py        — main web app
+  memora_cloud_db.py     — database engine
+  requirements.txt       — Python libraries
+  render.yaml            — Render config
+
+====================================
+STEP 1 — CREATE GITHUB ACCOUNT
+====================================
+Go to: https://github.com/signup
+  Email: your email
+  Username: bhuvilife (or any)
+  Password: create strong one
+  Verify email
+
+====================================
+STEP 2 — CREATE GITHUB REPOSITORY
+====================================
+After login go to: https://github.com/new
+  Repository name: memora
+  Description: MemorA - Your Personal AI Memory
+  Public (free hosting needs public repo)
+  Click: Create repository
+
+====================================
+STEP 3 — UPLOAD FILES TO GITHUB
+====================================
+On the repository page click: uploading an existing file
+OR click: Add file -> Upload files
+
+Upload these 4 files:
+  memora_cloud.py
+  memora_cloud_db.py
+  requirements.txt
+  render.yaml
+
+Click: Commit changes
+
+====================================
+STEP 4 — CREATE RENDER ACCOUNT
+====================================
+Go to: https://render.com
+Click: Get Started for Free
+Sign up with GitHub (click Continue with GitHub)
+Authorize Render
+
+====================================
+STEP 5 — DEPLOY ON RENDER
+====================================
+After login click: New +
+Click: Web Service
+Click: Connect a repository
+Select: memora (your GitHub repo)
+Click: Connect
+
+Settings page:
+  Name: memora
+  Region: Singapore (closest to India)
+  Branch: main
+  Build Command: pip install -r requirements.txt
+  Start Command: python memora_cloud.py
+  Instance Type: Free
+
+Click: Create Web Service
+
+====================================
+STEP 6 — WAIT FOR DEPLOY
+====================================
+Render will build and deploy automatically.
+Takes 3-5 minutes.
+Watch the logs — when you see:
+  MemorA Cloud starting...
+It is live.
+
+Your URL will be:
+  https://memora-xxxx.onrender.com
+
+====================================
+STEP 7 — TEST IT
+====================================
+Open the URL in browser.
+Click Sign Up.
+Create your account.
+Upload a PDF.
+Search for it.
+
+Share the URL with beta users!
+
+====================================
+NOTES
+====================================
+Free tier sleeps after 15 minutes idle.
+First visit after sleep takes 30 seconds to wake.
+For always-on: upgrade to Render Starter ($7/month)
+
+Free storage: 1 GB on /data disk
+Each user gets their own private database file
+Data persists across deployments
+
+TO UPDATE:
+  Edit files on GitHub
+  Render auto-deploys on every push
+
+TO CUSTOM DOMAIN LATER:
+  Render Dashboard -> Settings -> Custom Domain
+  Add: memora.bhuvilife.in or getmemora.in
+  Follow DNS instructions
+
+SUPPORT:
+  All questions bring back here
+  I will fix any errors immediately
